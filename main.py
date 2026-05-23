@@ -7,8 +7,13 @@ from pyrogram import Client, idle
 from bot.core.client import app
 from bot.core.server import run_web_server
 from bot.core.pulse import pulse
+from bot.config import Config
 
 async def start_bot():
+    # ᴇɴꜱᴜʀᴇ ᴅᴏᴡɴʟᴏᴀᴅ ᴅɪʀᴇᴄᴛᴏʀʏ ᴇxɪꜱᴛꜱ
+    if not os.path.exists(Config.DOWNLOAD_DIR):
+        os.makedirs(Config.DOWNLOAD_DIR)
+        
     await app.start()
     print("⚡ ɢᴏᴅ-ʟᴇᴠᴇʟ ꜰɪʟᴇ ʙᴏᴛ ʟɪᴠᴇ!")
     
