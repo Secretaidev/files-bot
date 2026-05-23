@@ -1,0 +1,16 @@
+pyrogram
+tgcrypto
+python-dotenv
+sqlalchemy
+ffmpeg-python
+yt-dlp
+pillow
+aiohttp
+patool
+aiofiles
+psutil
+aria2p
+uvicorn
+fastapi
+python-magic
+psycopg2-binary
