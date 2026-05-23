@@ -14,24 +14,20 @@ class Config:
     # ꜱᴇꜱꜱɪᴏɴ ꜱᴛʀɪɴɢ ꜰᴏʀ 4ɢʙ ᴜᴘʟᴏᴀᴅꜱ (ᴏᴘᴛɪᴏɴᴀʟ)
     SESSION_STRING = os.getenv("SESSION_STRING", "")
     
-    # ᴅᴀᴛᴀʙᴀꜱᴇ - ꜱᴜᴘᴘᴏʀᴛꜱ ꜱQʟɪᴛᴇ ᴀɴᴅ ᴘᴏꜱᴛɢʀᴇꜱ
-    DB_URI = os.getenv("DATABASE_URL", "sqlite:///bot_database.db")
-    if DB_URI.startswith("postgres://"):
-        DB_URI = DB_URI.replace("postgres://", "postgresql://", 1)
-        
+    # ᴍᴏɴɢᴏᴅʙ ᴜʀɪ - ᴛʜᴇ ɴᴇᴜʀᴀʟ-ɴᴏꜱQʟ ᴄᴏʀᴇ
+    DATABASE_URL = os.getenv("DATABASE_URL", "")
+    
     DOWNLOAD_DIR = os.getenv("DOWNLOAD_DIR", "downloads")
     
     # ᴡᴇʙ ꜱᴇʀᴠᴇʀ ᴄᴏɴꜰɪɢ (ꜰᴏʀ ꜱᴛʀᴇᴀᴍɪɴɢ)
     PORT = int(os.getenv("PORT", "8080"))
-    FQDN = os.getenv("FQDN", "") # ꜰᴜʟʟʏ Qᴜᴀʟɪꜰɪᴇᴅ ᴅᴏᴍᴀɪɴ ɴᴀᴍᴇ (ᴇ.ɢ. ʙᴏᴛ.ʀᴇɴᴅᴇʀ.ᴄᴏᴍ)
+    FQDN = os.getenv("FQDN", "")
     
     # ꜱᴜᴅᴏ ᴜꜱᴇʀꜱ
     SUDO_USERS = [int(x) for x in os.getenv("SUDO_USERS", "").split(",") if x]
     
-    # ʟᴏɢ ᴄʜᴀɴɴᴇʟ (ꜰᴏʀ ɪɴꜱᴀɴᴇ ᴛʀᴀᴄᴋɪɴɢ)
+    # ʟᴏɢ ᴄʜᴀɴɴᴇʟꜱ
     LOG_CHANNEL = int(os.getenv("LOG_CHANNEL", "0"))
-    
-    # ᴜɴʟɪᴍɪᴛᴇᴅ ᴄʟᴏᴜᴅ ᴅᴀᴛᴀʙᴀꜱᴇ (ᴛᴇʟᴇɢʀᴀᴍ ᴄʜᴀɴɴᴇʟ)
     DATABASE_CHANNEL = int(os.getenv("DATABASE_CHANNEL", "0"))
     
     # ᴀᴇꜱᴛʜᴇᴛɪᴄꜱ

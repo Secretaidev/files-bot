@@ -1,7 +1,8 @@
+motor
+pymongo
 pyrogram
 tgcrypto
 python-dotenv
-sqlalchemy
 ffmpeg-python
 yt-dlp
 pillow
@@ -13,4 +14,3 @@ aria2p
 uvicorn
 fastapi
 python-magic
-psycopg2-binary
