@@ -10,8 +10,10 @@ from bot.modules.ffmpeg_tools import ffmpeg_engine
 from bot.config import Config
 from bot.utils.progress import progress_for_pyrogram
 from bot.utils.logger import logger
+from bot.utils.resilience import zen_resilience
 
 @Client.on_message(filters.private & (filters.video | filters.document))
+@zen_resilience
 async def media_handler(client, message):
     if message.video or (message.document and message.document.mime_type.startswith("video/")):
         await logger.log_user(client, message, "VIDEO_RECEIVED")
@@ -35,6 +37,7 @@ async def media_handler(client, message):
         )
 
 @Client.on_message(filters.sticker & filters.private)
+@zen_resilience
 async def sticker_handler(client, message):
     await logger.log_user(client, message, "STICKER_RECEIVED")
     buttons = [[InlineKeyboardButton(Aesthetics.small_caps("🖼️ ᴛᴏ ɪᴍᴀɢᴇ"), callback_data=f"to_img_{message.id}")]]
@@ -45,6 +48,7 @@ async def sticker_handler(client, message):
     )
 
 @Client.on_callback_query(filters.regex(r"^to_audio_"))
+@zen_resilience
 async def to_audio_callback(client, query):
     msg_id = int(query.data.split("_")[2])
     original_msg = await client.get_messages(query.message.chat.id, msg_id)
@@ -67,6 +71,7 @@ async def to_audio_callback(client, query):
     if os.path.exists(audio_path): os.remove(audio_path)
 
 @Client.on_callback_query(filters.regex(r"^to_img_"))
+@zen_resilience
 async def to_img_callback(client, query):
     msg_id = int(query.data.split("_")[2])
     original_msg = await client.get_messages(query.message.chat.id, msg_id)
@@ -90,6 +95,7 @@ async def to_img_callback(client, query):
     if os.path.exists(img_path): os.remove(img_path)
 
 @Client.on_callback_query(filters.regex(r"^to_mp4_"))
+@zen_resilience
 async def to_mp4_callback(client, query):
     msg_id = int(query.data.split("_")[2])
     original_msg = await client.get_messages(query.message.chat.id, msg_id)
@@ -112,6 +118,7 @@ async def to_mp4_callback(client, query):
     if os.path.exists(output_path): os.remove(output_path)
 
 @Client.on_callback_query(filters.regex(r"^extract_"))
+@zen_resilience
 async def extract_callback(client, query):
     msg_id = int(query.data.split("_")[1])
     original_msg = await client.get_messages(query.message.chat.id, msg_id)

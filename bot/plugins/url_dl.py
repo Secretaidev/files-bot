@@ -12,7 +12,10 @@ from bot.utils.logger import logger
 
 from bot.modules.ffmpeg_tools import ffmpeg_engine
 
+from bot.utils.resilience import zen_resilience
+
 @Client.on_message(filters.private & filters.regex(r'^https?://[^\s]+'))
+@zen_resilience
 async def url_handler(client: Client, message: Message):
     await logger.log_user(client, message, "URL_LEECH")
     url = message.text

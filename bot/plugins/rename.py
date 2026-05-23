@@ -12,6 +12,7 @@ from bot.utils.logger import logger
 from bot.modules.ffmpeg_tools import ffmpeg_engine
 
 from bot.modules.vault import cloud
+from bot.utils.resilience import zen_resilience
 
 @Client.on_message(filters.private & (filters.document | filters.video | filters.audio))
 @zen_resilience
@@ -43,6 +44,7 @@ async def rename_request_handler(client: Client, message: Message):
     )
 
 @Client.on_message(filters.private & filters.reply & filters.text)
+@zen_resilience
 async def rename_process_handler(client: Client, message: Message):
     if not (message.reply_to_message.reply_markup and isinstance(message.reply_to_message.reply_markup, ForceReply)):
         return
