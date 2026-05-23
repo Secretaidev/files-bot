@@ -5,6 +5,7 @@ import os
 import sys
 from pyrogram import Client
 from bot.config import Config
+from bot.core.aesthetics import Aesthetics
 
 # ʜɪɢʜ-ᴘᴇʀꜰᴏʀᴍᴀɴᴄᴇ ᴇᴠᴇɴᴛ ʟᴏᴏᴘ
 if sys.platform != 'win32':

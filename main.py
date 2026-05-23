@@ -3,6 +3,7 @@
 
 import asyncio
 import threading
+import os
 from pyrogram import Client, idle
 from bot.core.client import app
 from bot.core.server import run_web_server
