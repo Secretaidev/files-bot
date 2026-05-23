@@ -12,7 +12,7 @@ async def start_handler(client: Client, message: Message):
     await logger.log_user(client, message, "START_COMMAND")
     text = Aesthetics.bold_small_caps(Config.START_MSG) + "\n\n"
     text += Aesthetics.small_caps(
-        "ɪ ᴀᴍ ᴛʜᴇ ᴡᴏʀʟᴅ'ꜱ ᴍᴏꜱᴛ ᴀᴅᴠᴀɴᴄᴇᴅ ꜰɪʟᴇ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ.\n"
+        "ɪ ᴀᴍ ᴛʜᴇ ᴍᴏꜱᴛ ᴀᴅᴠᴀɴᴄᴇᴅ ꜰɪʟᴇ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ.\n"
         "ꜱᴇɴᴅ ᴍᴇ ᴀɴʏ ꜰɪʟᴇ ᴛᴏ ꜱᴛᴀʀᴛ ᴍᴀɢɪᴄ!\n\n"
         "© 2026 ᴀᴅɪᴛʏᴀ | ᴜɴɪᴠᴇʀꜱᴇ-ᴄʟᴀꜱꜱ ᴛᴇᴄʜ"
     )
@@ -23,7 +23,7 @@ async def start_handler(client: Client, message: Message):
             InlineKeyboardButton(Aesthetics.small_caps("⚙️ ꜱᴇᴛᴛɪɴɢꜱ"), callback_data="settings")
         ],
         [
-            InlineKeyboardButton(Aesthetics.small_caps("👨‍💻 ᴅᴇᴠᴇʟᴏᴘᴇʀ"), url="https://t.me/BotFather")
+            InlineKeyboardButton(Aesthetics.small_caps("👨‍💻 ᴅᴇᴠᴇʟᴏᴘᴇʀ"), url="https://t.me/its_me_secret")
         ]
     ]
     

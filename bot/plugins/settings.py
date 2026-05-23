@@ -2,10 +2,12 @@ from pyrogram import Client, filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from bot.database.db_manager import db
 from bot.core.aesthetics import Aesthetics
-
+from bot.config import Config
+from bot.utils.resilience import zen_resilience
 from bot.utils.monitor import monitor
 
 @Client.on_message(filters.command("status") & filters.user(Config.SUDO_USERS))
+@zen_resilience
 async def status_handler(client, message):
     await message.reply_text(monitor.get_stats())
 

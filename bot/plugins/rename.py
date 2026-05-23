@@ -68,7 +68,7 @@ async def rename_process_handler(client: Client, message: Message):
         await ms.edit(Aesthetics.small_caps("⌛ ᴘʀᴏᴄᴇꜱꜱɪɴɢ ᴍᴇᴅɪᴀ..."))
         
         # ᴀᴜᴛᴏ-ᴛʜᴜᴍʙɴᴀɪʟ ʟᴏɢɪᴄ
-        thumb_id = db.get_thumbnail(message.from_user.id)
+        thumb_id = await db.get_thumbnail(message.from_user.id)
         thumb_path = None
         
         if thumb_id:
